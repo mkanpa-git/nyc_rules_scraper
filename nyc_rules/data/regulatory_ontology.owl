@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://city.gov/ufo#"
+     xml:base="http://city.gov/ufo"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <owl:Ontology rdf:about="http://city.gov/ufo#RegulatoryFramework"/>
+
+    <!-- Endurants -->
+    <owl:Class rdf:ID="RegulatedEntity"/>
+    <owl:Class rdf:ID="RegulatingAuthority"/>
+    <owl:Class rdf:ID="Stakeholder"/>
+    <owl:Class rdf:ID="EnforcingEntity"/>
+
+    <owl:ObjectProperty rdf:ID="hasRegulatingAuthority">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#RegulatingAuthority"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="hasRegulatedEntity">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#RegulatedEntity"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="hasEnforcingEntity">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#EnforcingEntity"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="hasStakeholder">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#Stakeholder"/>
+    </owl:ObjectProperty>
+    
+    <!-- Perdurants -->
+    <owl:Class rdf:ID="RegulationEnactment"/>
+    <owl:Class rdf:ID="ComplianceProcess"/>
+    <owl:Class rdf:ID="ViolationEvent"/>
+    <owl:Class rdf:ID="NonComplianceConsequence"/>
+    
+    <owl:ObjectProperty rdf:ID="triggersComplianceProcess">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#ComplianceProcess"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="triggersViolationEvent">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#ViolationEvent"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="resultsInConsequence">
+        <rdfs:domain rdf:resource="#ViolationEvent"/>
+        <rdfs:range rdf:resource="#NonComplianceConsequence"/>
+    </owl:ObjectProperty>
+    
+    <!-- Social Objects -->
+    <owl:Class rdf:ID="Regulation"/>
+    <owl:Class rdf:ID="Condition"/>
+    <owl:Class rdf:ID="Penalty"/>
+    <owl:Class rdf:ID="Right"/>
+    <owl:Class rdf:ID="Commitment"/>
+    <owl:Class rdf:ID="Reference"/>
+    
+    <owl:ObjectProperty rdf:ID="definesCondition">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#Condition"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="imposesPenalty">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#Penalty"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="grantsRight">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#Right"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="hasCommitment">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#Commitment"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:ID="references">
+        <rdfs:domain rdf:resource="#Regulation"/>
+        <rdfs:range rdf:resource="#Reference"/>
+    </owl:ObjectProperty>
+    
+</rdf:RDF>
